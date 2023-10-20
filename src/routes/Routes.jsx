@@ -10,6 +10,7 @@ import AddProduct from './../pages/Products/AddProduct';
 import UpdateProduct from './../pages/Products/UpdateProduct';
 import Shop from '../pages/Shop/Shop';
 import BrandProducts from '../pages/Products/BrandProducts';
+import ProductSpecs from '../pages/Products/ProductSpecs';
 
 
 
@@ -41,7 +42,7 @@ const Routes = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             },
             {
-                path: "/update_product",
+                path: "/update_product/:id",
                 element: <UpdateProduct></UpdateProduct>
             },
             {
@@ -50,8 +51,14 @@ const Routes = createBrowserRouter([
                 loader: () => fetch('https://brand-shop-server-ruby.vercel.app/products')
             },
             {
-                path: "/products/:brand",
-                element: <BrandProducts></BrandProducts>
+                path: "/products/:id",
+                element: <BrandProducts></BrandProducts>,
+                loader: ({ params }) => fetch(`https://brand-shop-server-ruby.vercel.app/product/${params.id}`)
+            },
+            {
+                path: "/product/:id",
+                element: <ProductSpecs></ProductSpecs>,
+                loader: () => fetch('https://brand-shop-server-ruby.vercel.app/products')
             }
         ]
         
