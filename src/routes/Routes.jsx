@@ -22,7 +22,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/brands')
+                loader: () => fetch('https://brand-shop-server-ruby.vercel.app/brands')
             },
             {
                 path: "/cart",
@@ -47,7 +47,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/shop",
                 element: <Shop></Shop>,
-                loader: () => fetch('http://localhost:5000/products')
+                loader: () => fetch('https://brand-shop-server-ruby.vercel.app/products')
             },
             {
                 path: "/products/:brand",
