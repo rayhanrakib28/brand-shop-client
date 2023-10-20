@@ -61,7 +61,7 @@ const Navbar = () => {
                     isPending ? "pending" : isActive ? "font-bold text-[#0078FF]" : ""
                 }
             >
-                My Cart
+                Cart
             </NavLink>
         </li>
     </>

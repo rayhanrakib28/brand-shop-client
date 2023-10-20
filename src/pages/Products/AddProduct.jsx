@@ -2,24 +2,29 @@ import { useState } from "react";
 
 
 const AddProduct = () => {
-    const [brand, setBrand] = useState();
-    const [type, setType] = useState();
-    const productBrand = brand;
-    const productType = type;
+    const [brandName, setBrandName] = useState();
+    const [batchId, setBatchId] = useState('');
+    const [brandType, setBrandType] = useState('');
+    const [productRating, setProductRating] = useState();
+    const brand = brandName;
+    const batch = batchId;
+    const type = brandType;
+    const rating = productRating;
 
     const handleAddProduct = event => {
         event.preventDefault();
         const form = event.target;
-        const productName = form.pName.value;
-        const productPhoto = form.pImage.value;
-        const productPrice = form.pPrice.value;
-        const productDescription = form.pDescription.value;
-        const product = { productBrand, productType, productName, productPhoto, productPrice, productDescription }
+        const name = form.pName.value;
+        const image = form.pImage.value;
+        const price = form.pPrice.value;
+        const short_description = form.pShortDesc.value;
+        const details = form.pDetails.value;
+        const product = { brand, batch, type, name, image, price, rating, short_description, details}
         console.log(product);
+
     }
 
-
-
+    
     return (
         <div>
             <div className="bg-gray-100 mt-2">
@@ -83,36 +88,72 @@ const AddProduct = () => {
 
                                     <select
                                         className="border p-3 rounded-md"
-                                        value={brand}
-                                        onChange={e => setBrand(e.target.value)}
+                                        value={brandName}
+                                        onChange={e => setBrandName(e.target.value)}
                                     >
                                         <option value="apple">Apple</option>
                                         <option value="samsung">Samsung</option>
                                         <option value="xiaomi">Xiaomi</option>
                                         <option value="google">Google</option>
                                         <option value="intel">Intel</option>
+                                        <option value="jbl">JBL</option>
                                     </select>
 
                                     <select
                                         className="border p-3 rounded-md"
-                                        value={type}
-                                        onChange={e => setType(e.target.value)}
+                                        value={brandType}
+                                        onChange={e => setBrandType(e.target.value)}
                                     >
                                         <option value="phone">Phone</option>
                                         <option value="computer">Computer</option>
+                                        <option value="headphone">Headphone</option>
                                         <option value="accessories">Accessories</option>
                                     </select>
 
+                                    <select
+                                        className="border p-3 rounded-md"
+                                        value={batchId}
+                                        onChange={e => setBatchId(e.target.value)}
+                                    >
+                                        <option value="1">Batch 1 Apple</option>
+                                        <option value="2">Batch 2 Samsung</option>
+                                        <option value="3">Batch 3 Xiaomi</option>
+                                        <option value="4">Batch 4 Google</option>
+                                        <option value="5">Batch 5 Intel</option>
+                                        <option value="6">Batch 6 JBL</option>
+                                    </select>
+
+                                    <select
+                                        className="border p-3 rounded-md"
+                                        value={productRating}
+                                        onChange={e => setProductRating(e.target.value)}
+                                    >
+                                        <option value="1">1 Star</option>
+                                        <option value="2">2 Star</option>
+                                        <option value="3">3 Star</option>
+                                        <option value="4">4 Star</option>
+                                        <option value="5">5 Star</option>
+                                    </select>
+
+                                </div>
+                                <div>
+                                    <label className="sr-only" for="name">Product Short Description</label>
+                                    <input
+                                        className="w-full rounded-lg border-gray-200 p-3 text-sm border outline-none"
+                                        placeholder="Product Short Description"
+                                        type="text"
+                                        name='pShortDesc'
+                                    />
                                 </div>
 
                                 <div>
-                                    <label className="sr-only" for="message">Product Description</label>
+                                    <label className="sr-only" for="message">Product Details</label>
 
                                     <textarea
-                                        className="w-full rounded-lg border border-gray-200 p-3 text-sm"
-                                        placeholder="Product Description"
+                                        className="w-full rounded-lg border outline-none border-gray-200 p-3 text-sm"
+                                        placeholder="Product Details"
                                         rows="4"
-                                        name="pDescription"
+                                        name="pDetails"
                                     ></textarea>
                                 </div>
 
