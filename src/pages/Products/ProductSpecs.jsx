@@ -22,7 +22,6 @@ const ProductSpecs = () => {
     const sold = parseFloat(rating) * 10;
 
     const handleDeleteProduct = id => {
-        console.log(id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -33,7 +32,7 @@ const ProductSpecs = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://tech-shop-server-ecru.vercel.app/product/${_id}`, {
+                fetch(`https://tech-shop-server-ecru.vercel.app/product/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
