@@ -14,7 +14,7 @@ const ShopCard = ({ product }) => {
 
                 <div className="relative border border-gray-100 bg-[#F9FAFB] p-6">
                     <span
-                        className="whitespace-nowrap bg-[#002B44] text-white px-3 py-1.5 text-xs font-medium"
+                        className="whitespace-nowrap rounded-sm bg-[#002B44] text-white px-3 py-1.5 text-xs font-medium"
                     >
                         {type}
                     </span>

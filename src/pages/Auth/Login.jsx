@@ -51,6 +51,7 @@ const Login = () => {
                                 <h1 className='text-center font-bold'>Sign in to your account</h1>
                                 <div className='flex justify-center'>
                                     <input
+                                        required
                                         className="w-full lg:w-1/2 rounded-lg border-gray-200 p-3 text-sm border outline-none"
                                         placeholder="Your Email Address"
                                         type="email"
@@ -59,6 +60,7 @@ const Login = () => {
                                 </div>
                                 <div className='flex justify-center'>
                                     <input
+                                        required
                                         className="w-full lg:w-1/2 rounded-lg border-gray-200 p-3 text-sm border outline-none"
                                         placeholder="Your Password"
                                         type="password"

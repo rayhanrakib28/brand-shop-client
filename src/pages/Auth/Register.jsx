@@ -51,6 +51,7 @@ const Register = () => {
                                 <h1 className='text-center font-bold'>Account Creation</h1>
                                 <div className='flex justify-center'>
                                     <input
+                                        required
                                         className="w-full lg:w-1/2 rounded-lg border-gray-200 p-3 text-sm border outline-none"
                                         placeholder="Email Address"
                                         type="email"
@@ -75,6 +76,7 @@ const Register = () => {
                                 </div>
                                 <div className='flex justify-center'>
                                     <input
+                                        required
                                         className="w-full lg:w-1/2 rounded-lg border-gray-200 p-3 text-sm border outline-none"
                                         placeholder="Password"
                                         type="password"
