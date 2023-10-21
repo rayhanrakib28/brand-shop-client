@@ -1,8 +1,24 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
-
-
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut().then((result) => {
+            toast.success('Sign Out Successfully.', {
+                style: {
+                    border: '1px solid #713200',
+                    padding: '16px',
+                    color: '#713200',
+                },
+                iconTheme: {
+                    primary: '#713200',
+                    secondary: '#FFFAEE',
+                },
+            });
+        })
+    }
 
     const navlinks = <>
         <li>
@@ -31,17 +47,6 @@ const Navbar = () => {
     </>
 
     const usernav = <>
-        <li>
-            <NavLink
-                to="/login"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "font-bold text-[#0078FF]" : ""
-                }
-            >
-                Sign In
-            </NavLink>
-
-        </li>
         <li>
             <NavLink
                 to="/add_product"
@@ -97,20 +102,29 @@ const Navbar = () => {
                         <a href='/' className=" normal-case text-xl"><img src="https://i.ibb.co/tMFSdqn/logo.png" alt='Priyo Tech' /></a>
                     </div>
                     <div className="navbar-end">
-                        <div className='hidden lg:flex lg:mr-2'>
-                            <ul className="flex gap-4 text-base font-semibold px-1">
-                                {usernav}
-                            </ul>
-                        </div>
+                        {
+                            user ? (<div className='hidden lg:flex lg:mr-2'>
+                                <ul className="flex gap-4 text-base font-semibold px-1">
+                                    {usernav}
+                                </ul>
+                            </div>) : (<a className='text-base font-semibold mr-3' href="/login">Sign In</a> )
+                        }
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img src={user ? user.photoURL : '/user.png'} />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60">
-                                <li className='text-lg text-center'>Username</li>
-                                <button><a className='text-lg text-center'>Logout</a></button>
+                                {
+                                    user && <li className='text-lg text-center'>{user?.displayName}</li>
+                                }
+                                {
+                                    user && <button className='text-lg text-center' onClick={handleLogOut}>Sign Out</button>
+                                }
+                                {
+                                    !user && <button><a className='text-lg text-center' href="/login">Sign In</a></button>
+                                }
                             </ul>
                         </div>
                     </div>

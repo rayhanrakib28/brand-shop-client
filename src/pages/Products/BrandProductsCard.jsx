@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BrandProductsCard = ({ products }) => {
-    const { _id, image, name, brand, type, price, rating, short_description, details } = products || {};
-    
+    const { _id, image, name, type, price, rating } = products || {};
+
     return (
         <Link to={`/product/${_id}`}>
             <div className='cursor-pointer'>
@@ -20,7 +20,11 @@ const BrandProductsCard = ({ products }) => {
                         {type}
                     </span>
                     <h3 className="mt-4 text-lg font-medium text-gray-900">{name}</h3>
-                    <p className="mt-1.5 text-gray-700">${price}</p>
+                    <div className='flex items-center gap-2 '>
+                        <p className="text-gray-700 font-semibold">${price}</p>
+                        <p className='text-[#FFB832]'>({rating})</p>
+                    </div>
+                    
 
                     <div className="mt-4">
                         <Link to={`/product/${_id}`}>

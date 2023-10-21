@@ -1,30 +1,47 @@
-import { useState } from "react";
+
+import Swal from "sweetalert2";
 
 
 const AddProduct = () => {
-    const [brandName, setBrandName] = useState();
-    const [batchId, setBatchId] = useState('');
-    const [brandType, setBrandType] = useState('');
-    const [productRating, setProductRating] = useState();
-    const brand = brandName;
-    const batch = batchId;
-    const type = brandType;
-    const rating = productRating;
 
     const handleAddProduct = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.pName.value;
         const image = form.pImage.value;
+        const brand = document.getElementById("brandName").value;
+        const batch = document.getElementById("batchId").value;
+        const type = document.getElementById("brandType").value;
+        const rating = document.getElementById("productRating").value;
         const price = form.pPrice.value;
         const short_description = form.pShortDesc.value;
         const details = form.pDetails.value;
-        const product = { brand, batch, type, name, image, price, rating, short_description, details}
-        console.log(product);
-
+        const newProduct = { brand, batch, type, name, image, price, rating, short_description, details };
+        console.log(newProduct);
+        fetch('https://tech-shop-server-ecru.vercel.app/products', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newProduct),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your product has been added',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    form.reset()
+                }
+            })
     }
 
-    
+
     return (
         <div>
             <div className="bg-gray-100 mt-2">
@@ -57,6 +74,7 @@ const AddProduct = () => {
                                 <div>
                                     <label className="sr-only" for="name">Name</label>
                                     <input
+                                        required
                                         className="w-full rounded-lg border-gray-200 p-3 text-sm border"
                                         placeholder="Product Name"
                                         type="text"
@@ -69,6 +87,7 @@ const AddProduct = () => {
                                     <div>
                                         <label className="sr-only" for="email">Product Photo</label>
                                         <input
+                                            required
                                             className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                                             placeholder="Product Photo URL"
                                             type=""
@@ -79,6 +98,7 @@ const AddProduct = () => {
                                     <div>
                                         <label className="sr-only" for="price">Price</label>
                                         <input
+                                            required
                                             className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                                             placeholder="Product Price"
                                             type="number"
@@ -88,8 +108,7 @@ const AddProduct = () => {
 
                                     <select
                                         className="border p-3 rounded-md"
-                                        value={brandName}
-                                        onChange={e => setBrandName(e.target.value)}
+                                        id="brandName"
                                     >
                                         <option value="apple">Apple</option>
                                         <option value="samsung">Samsung</option>
@@ -101,8 +120,7 @@ const AddProduct = () => {
 
                                     <select
                                         className="border p-3 rounded-md"
-                                        value={brandType}
-                                        onChange={e => setBrandType(e.target.value)}
+                                        id="brandType"
                                     >
                                         <option value="phone">Phone</option>
                                         <option value="computer">Computer</option>
@@ -112,8 +130,7 @@ const AddProduct = () => {
 
                                     <select
                                         className="border p-3 rounded-md"
-                                        value={batchId}
-                                        onChange={e => setBatchId(e.target.value)}
+                                        id="batchId"
                                     >
                                         <option value="1">Batch 1 Apple</option>
                                         <option value="2">Batch 2 Samsung</option>
@@ -125,20 +142,21 @@ const AddProduct = () => {
 
                                     <select
                                         className="border p-3 rounded-md"
-                                        value={productRating}
-                                        onChange={e => setProductRating(e.target.value)}
+                                        id="productRating"
                                     >
-                                        <option value="1">1 Star</option>
-                                        <option value="2">2 Star</option>
-                                        <option value="3">3 Star</option>
-                                        <option value="4">4 Star</option>
                                         <option value="5">5 Star</option>
+                                        <option value="4">4 Star</option>
+                                        <option value="3">3 Star</option>
+                                        <option value="2">2 Star</option>
+                                        <option value="1">1 Star</option>
+
                                     </select>
 
                                 </div>
                                 <div>
                                     <label className="sr-only" for="name">Product Short Description</label>
                                     <input
+                                        required
                                         className="w-full rounded-lg border-gray-200 p-3 text-sm border outline-none"
                                         placeholder="Product Short Description"
                                         type="text"
@@ -150,6 +168,7 @@ const AddProduct = () => {
                                     <label className="sr-only" for="message">Product Details</label>
 
                                     <textarea
+                                        required
                                         className="w-full rounded-lg border outline-none border-gray-200 p-3 text-sm"
                                         placeholder="Product Details"
                                         rows="4"
