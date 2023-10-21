@@ -106,9 +106,9 @@ const ProductSpecs = () => {
                 </a>
                 <div className='w-full lg:w-1/2'>
                     <Link to={`/brands/${batch}`}>
-                        <h3 className='bg-[#0078FF] p-1 uppercase text-white text-sm font-semibold w-fit rounded'>{brand}</h3>
+                        <h3 className='bg-[#0078FF] px-2 py-1 uppercase text-white text-sm font-semibold w-fit rounded'>{brand}</h3>
                     </Link>
-                    <h4 className='my-2 bg-[#002B44] p-1 w-fit rounded uppercase text-[#F9FAFB] text-xs'>{type}</h4>
+                    <h4 className='my-2 bg-[#002B44] px-2 py-1 w-fit rounded uppercase text-[#F9FAFB] text-xs'>{type}</h4>
                     <h1 className='my-2 capitalize text-[#002B44] text-2xl md:text-3xl lg:text-4xl font-semibold'>{name}</h1>
                     <h4 className='mb-2 capitalize text-[#002B44] text-xs font-light w-[90%]'>{short_description}</h4>
                     <p className="my-4 capitalize text-[#002B44] text-xl font-semibold">Price : ${price}</p>
