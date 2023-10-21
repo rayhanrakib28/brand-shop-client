@@ -21,7 +21,7 @@ const ShopCard = ({ product }) => {
                     <h3 className="mt-4 text-lg font-medium text-gray-900">{name}</h3>
                     <div className='flex items-center gap-2 '>
                         <p className="text-gray-700 font-semibold">${price}</p>
-                        <p className='text-[#FFB832]'>({rating})</p>
+                        <p className='text-[#0078FF]'>({rating})</p>
                     </div>
 
 
