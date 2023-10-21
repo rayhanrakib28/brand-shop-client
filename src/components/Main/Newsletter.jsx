@@ -5,7 +5,7 @@ const Newsletter = () => {
         e.preventDefault();
     }
     return (
-        <div className='container mx-auto my-20'>
+        <div className='container mx-auto my-16'>
             <h1 className='text-xl text-[#002B44] capitalize md:text-3xl lg:text-4xl font-bold text-center'>Join newsletter and get <br /><span className='text-[#0078FF]'>$10</span> discount for your next order!</h1>
 
             <div className='flex justify-center items-center mt-5 w-full'>
