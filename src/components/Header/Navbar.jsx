@@ -75,9 +75,9 @@ const Navbar = () => {
         <div>
             <div className='bg-[#002b44] hidden md:block text-white'>
                 <div className='container mx-auto flex justify-items-center items-center py-1 px-4 lg:px-0'>
-                    <h2 className='w-full text-start text-xs md:text-sm lg:text-base'>Need help? <br className='md:hidden' /> Call us: 1-800-123-4567</h2>
-                    <h2 className='w-full text-center text-xs md:text-sm lg:text-base'>Summer sale discount off 50% off! Shop Now</h2>
-                    <h2 className='w-full text-end text-xs md:text-sm lg:text-base'> </h2>
+                    <h2 className='w-full text-start text-xs md:text-sm '>Need help? <br className='md:hidden' /> Call us: 1-800-123-4567</h2>
+                    <h2 className='w-full text-center text-xs md:text-sm '>Summer sale discount off 50% off! Shop Now</h2>
+                    <h2 className='w-full text-end text-xs md:text-sm'> </h2>
                 </div>
             </div>
             <div className='container mx-auto pt-4'>
