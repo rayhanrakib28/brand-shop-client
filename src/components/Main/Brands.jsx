@@ -21,7 +21,7 @@ const Brands = () => {
                 <p className="h-10 flex justify-center items-center">Loading..."Please Reload This Page"</p>
             ) : (
                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-items-center px-10 lg:px-0 mt-8'>
-                    {allBrands.map(brand => <BrandCard key={brand._id} brand={brand} />)}
+                    {allBrands?.map(brand => <BrandCard key={brand._id} brand={brand} />)}
                 </div>
             )}
         </div>
