@@ -108,12 +108,16 @@ const Navbar = () => {
                                 <ul className="flex gap-4 text-base font-semibold px-1">
                                     {usernav}
                                 </ul>
-                            </div>) : (<a className='text-base font-semibold mr-3 hidden md:block' href="/login">Sign In</a> )
+                            </div>) : (<a className='text-base font-semibold mr-3 hidden md:block' href="/login">Sign In</a>)
                         }
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user ? user.photoURL : '/user.png'} />
+                                    <img
+                                        src={user ? (user.photoURL ? user.photoURL : '/logged-user.png') : '/user.png'}
+                                        alt="User"
+                                    />
+
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60">
