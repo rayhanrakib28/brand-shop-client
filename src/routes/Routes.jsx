@@ -27,8 +27,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/cart",
-                element: <PrivateRoutes><Cart></Cart></PrivateRoutes>,
-                loader: () => fetch('https://tech-shop-server-ecru.vercel.app/cart_products')
+                element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
             },
             {
                 path: "/login",
