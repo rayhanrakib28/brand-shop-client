@@ -27,7 +27,7 @@ const Cart = () => {
                 <h1 className="text-white font-bold text-4xl">Shop and Save!</h1>
             </div>
             {
-                isLoading ? (<p className="h-10 flex justify-center items-center">Loading..."Please Reload This Page"</p>) : (
+                isLoading ? (<p className="h-10 flex justify-center items-center">Loading..."Reload This Page"</p>) : (
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center px-10 lg:px-0 mt-8'>
                         {
                             foundProduct?.map(product => <CartCard key={product._id} product={product}></CartCard>)
