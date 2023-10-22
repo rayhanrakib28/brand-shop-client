@@ -12,10 +12,6 @@ const Brands = () => {
                 setAllBrands(data);
                 setIsLoading(false);
             })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-                setIsLoading(false);
-            });
     }, []);
 
     return (
