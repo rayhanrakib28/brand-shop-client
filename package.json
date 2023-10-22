@@ -1,5 +1,5 @@
 {
-  "name": "brand-shop-client",
+  "name": "tech-shop-client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -37,5 +37,9 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "postcss.config.js",
+  "author": "",
+  "license": "ISC"
 }
