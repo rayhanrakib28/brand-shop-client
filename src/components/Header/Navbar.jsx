@@ -107,7 +107,7 @@ const Navbar = () => {
                                 <ul className="flex gap-4 text-base font-semibold px-1">
                                     {usernav}
                                 </ul>
-                            </div>) : (<a className='text-base font-semibold mr-3' href="/login">Sign In</a> )
+                            </div>) : (<a className='text-base font-semibold mr-3 hidden md:block' href="/login">Sign In</a> )
                         }
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
