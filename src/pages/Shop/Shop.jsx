@@ -20,7 +20,7 @@ const Shop = () => {
                 <h1 className="text-white font-bold text-4xl">Shop 'Til You Drop!</h1>
             </div>
             {isLoading ? (
-                <p className="h-10 flex justify-center items-center">Loading..."Reload This Page"</p>
+                <p className="h-10 flex justify-center items-center">Loading...</p>
             ) : (
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center px-10 lg:px-0 mt-8'>
                         {
