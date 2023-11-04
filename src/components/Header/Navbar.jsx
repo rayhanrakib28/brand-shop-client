@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);

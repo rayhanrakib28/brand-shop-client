@@ -5,20 +5,18 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const Cart = () => {
     const { user } = useContext(AuthContext);
-    const userId = user.metadata.createdAt;
+    const userEmail = user?.email;
     const [cartProducts, setCartProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const url = `https://tech-shop-server-ecru.vercel.app/cart_products?email=${userEmail}`;
     useEffect(() => {
-        fetch('https://tech-shop-server-ecru.vercel.app/cart_products')
+        fetch(url, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setCartProducts(data);
                 setIsLoading(false);
             })
     }, [])
-
-
-    const foundProduct = cartProducts.filter((product) => product.userId === userId);
 
 
     return (
@@ -30,7 +28,7 @@ const Cart = () => {
                 isLoading ? (<p className="h-10 flex justify-center items-center">Loading...</p>) : (
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center px-10 lg:px-0 mt-8'>
                         {
-                            foundProduct?.map(product => <CartCard key={product._id} product={product}></CartCard>)
+                            cartProducts?.map(product => <CartCard key={product._id} product={product}></CartCard>)
                         }
                     </div>
                 )

@@ -7,7 +7,8 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const ProductSpecs = () => {
     const { user } = useContext(AuthContext);
-    const userId = user.metadata.createdAt;
+    const userId = user?.metadata?.createdAt;
+    const email = user?.email;
     const [data, setData] = useState([]);
     useEffect(() => {
         fetch('https://tech-shop-server-ecru.vercel.app/products')
@@ -52,9 +53,9 @@ const ProductSpecs = () => {
 
 
 
-    const handleAddToCart = ({ userId, brand, batch, type, name, image, price, rating, short_description, details }) => {
-        const cartProduct = { brand, batch, type, name, image, price, rating, short_description, details, userId };
-        fetch('https://tech-shop-server-ecru.vercel.app/cart_products', {
+    const handleAddToCart = ({ userId, email, brand, batch, type, name, image, price, rating, short_description, details }) => {
+        const cartProduct = { brand, batch, type, name, image, price, rating, short_description, details, userId, email };
+        fetch(`https://tech-shop-server-ecru.vercel.app/cart_products`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -117,7 +118,7 @@ const ProductSpecs = () => {
                     <p className="my-4 capitalize text-[#002B44] font-semibold">sold : {sold} item</p>
                     <p className=' capitalize text-[#002B44] text-sm font-normal w-[90%]'>{details}</p>
                     <button
-                        onClick={() => handleAddToCart({ userId, brand, batch, type, name, image, price, rating, short_description, details })}
+                        onClick={() => handleAddToCart({ userId, email, brand, batch, type, name, image, price, rating, short_description, details })}
                         className='bg-[#002B44] text-white px-4 py-3 rounded-md mt-6'>
                         Add To Cart
                     </button>
